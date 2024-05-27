@@ -31,10 +31,13 @@ public:
             
             TreeNode* newLeft = new TreeNode(val);
             TreeNode* newRight = new TreeNode(val);
+            
             root->left = newLeft;
-            root->right = newRight;
             newLeft->left = leftSubtree;
+            
+            root->right = newRight;
             newRight->right = rightSubtree;
+            
             return;
         }
         

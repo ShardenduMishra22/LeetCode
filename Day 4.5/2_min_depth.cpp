@@ -19,10 +19,9 @@ public:
         int left = minDepth(root->left);
         int right = minDepth(root->right);
 
-        if (right == 0 || left == 0)
-            return max (left, right) + 1;
-        root->left = nullptr;
-        root->right = nullptr;
+        if (left == 0 || right == 0)
+            return max(left, right) + 1;
+
         return min(left, right) + 1;
     }
 };

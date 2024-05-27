@@ -14,12 +14,10 @@ struct TreeNode {
 class Solution {
 public:
     void solve(TreeNode* root, vector<string>& ans, string& s) {
-        if (root == nullptr) {
-            return;
-        }
-        if (s != "") {
-            s += "->";
-        }
+        
+        if (root == nullptr) return;
+        if (s != "") s += "->";
+
         s += to_string(root->val);
         if (root->left == nullptr && root->right == nullptr) {
             ans.push_back(s);

@@ -12,17 +12,13 @@ using namespace std;
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-
         while(head != NULL && head->val == val){
             head = head -> next;
         }
-
         if(head == NULL)
             return NULL;
-
         ListNode*prev = head;
         ListNode*ptr = head -> next;
-        
         while(ptr != NULL){
             if(ptr->val == val){
                 prev -> next = ptr -> next;
@@ -33,7 +29,6 @@ public:
                 ptr = ptr -> next;
             }
         }
-
         return head;
     }
 };

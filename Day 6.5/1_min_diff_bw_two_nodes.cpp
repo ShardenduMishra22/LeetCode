@@ -15,15 +15,14 @@ public:
     void solve(TreeNode* root,vector<int>& ans){
         if(root == NULL) return;
 
-        ans.push_back(root->val);
         solve(root->left,ans);
+        ans.push_back(root->val);
         solve(root->right,ans);
     }
 
     int getMinimumDifference(TreeNode* root) {
         vector<int>ans;
         solve(root,ans);
-        sort(ans.begin(),ans.end());
         int i = 0,j = 1;
         int mn = INT_MAX;
         while(j < ans.size()){

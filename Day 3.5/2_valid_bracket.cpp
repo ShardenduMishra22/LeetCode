@@ -13,9 +13,7 @@ public:
                     return false;  
                 }
                 char c = st.top();
-                if ((c == '(' && ch == ')') ||
-                    (c == '[' && ch == ']') ||
-                    (c == '{' && ch == '}')) {
+                if ((c == '(' && ch == ')') || (c == '[' && ch == ']') || (c == '{' && ch == '}')) {
                     st.pop();
                 } else {
                     return false;

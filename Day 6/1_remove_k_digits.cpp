@@ -11,7 +11,8 @@ class Solution {
     vector<char> stack;
 
     for (int i = 0; i < num.length(); ++i) {
-      while (k > 0 && !stack.empty() && stack.back() > num[i]) {
+      while (k > 0 && !stack.empty() 
+      && stack.back() > num[i]) {
         stack.pop_back();
         --k;
       }

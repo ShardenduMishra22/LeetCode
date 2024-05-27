@@ -13,9 +13,8 @@ struct TreeNode {
 class Solution {
 public:
     void countNodesHelper(TreeNode* root, int& count) {
-        if (root == nullptr) {
-            return;
-        }
+        if (root == nullptr) return;
+        
         count++; 
         countNodesHelper(root->left, count);
         countNodesHelper(root->right, count);
