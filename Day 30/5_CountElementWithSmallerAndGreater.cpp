@@ -11,9 +11,7 @@ public:
         int biggest=nums[n-1];
         int count=0;
         for(int i=1;i<n-1;i++)
-        {
             if(nums[i]!=smallest && nums[i]!=biggest) count++;
-        }
         return count;
     }
 };

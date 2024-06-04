@@ -4,20 +4,17 @@ using namespace std;
 class{
     private:
     bool isSpecial(int row, int col , int n , int m, vector<vector<int>>& mat){
-     
         for(int i = 0 ; i < n ; i++){
             if(mat[i][col] == 1 && i != row){
                 return false;
             }
         }
-
         for(int i = 0 ; i < m ;i++){
             if(mat[row][i] == 1 && i!= col){
                 return false;
             }
            
         }
-
         return true;
     }
 public:

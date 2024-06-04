@@ -15,8 +15,9 @@ public:
                 flg = false;
             }
         }
-        if(idx_b == -1) 
+        if(idx_b == -1 || idx_a == -1) 
             return true;
         return idx_a < idx_b;
     }
 };
+
