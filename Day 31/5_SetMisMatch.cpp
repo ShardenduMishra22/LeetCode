@@ -15,7 +15,8 @@ public:
                 ans.push_back(i);
             }
         }
-        // reverse if the number taht comes twice isnt first 
+
+        // reverse if the number that comes twice isnt first 
         if(m[ans[0]] == 0){
             reverse(ans.begin(),ans.end());
         }
