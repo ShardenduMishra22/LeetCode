@@ -1,14 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#pragma GCC optimize("Ofast")
-static auto _ = [] () {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 0;
-}();
-
 #define frb(i, len) for(int i = len-1; i >= 0; i--)
 #define fr(i, len) for(int i = 0; i < len; i++)
 
@@ -29,9 +21,9 @@ typedef unsigned unsg;
 typedef double dbl;
 
 typedef vector<vector<string>> vvstr;
-typedef vector<vector<bool>> vvbl;
+typedef vector<vector<bool>> vvint;
 typedef vector<vector<int>> vvint;
-typedef vector<vector<ll>> vvll;
+typedef vector<vector<ll>> vvint;
 
 typedef vector<string> vstr;
 typedef vector<int> vint;
@@ -56,3 +48,27 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+void fast() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}
+
+
+class Solution {
+public:
+    bool checkStraightLine(vector<vector<int>>& crd) {
+        int dx = crd[1][0] - crd[0][0];
+        int dy = crd[1][1] - crd[0][1];
+
+        for (int i = 2; i < crd.size(); i++) {
+            int dx1 = crd[i][0] - crd[0][0];
+            int dy1 = crd[i][1] - crd[0][1];
+            if (dx * dy1 != dy * dx1) {
+                return false;
+            }
+        }
+        return true;
+    }
+};

@@ -56,3 +56,31 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+
+class Solution {
+public:
+    int pivotInteger(int n) {
+        vector<int> ans;
+        for(int i=1;i<n+1;i+=1)
+            ans.push_back(i);
+        
+        int sum = n*(n+1)/2;
+        int l=0,r=n;
+        
+        while(l <= r){
+            int m = l + (r - l) / 2;
+            int frst_hlf = (m * (m + 1))/2;
+            int scnd_hlf = sum - frst_hlf + m;
+
+            if(frst_hlf == scnd_hlf){
+                return m;
+            }else if(frst_hlf < scnd_hlf){
+                l = m + 1;
+            }else{
+                r = m - 1;
+            }
+        }
+        return -1;
+    }
+};

@@ -56,3 +56,34 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+class Solution {
+public:
+    int solve(int k, vector<int>& pr) {
+        int n = pr.size();
+        vector<vector<vector<int>>> dp(n + 1, vector<vector<int>>(2, vector<int>(k + 1, 0)));
+
+        for (int idx = n - 1; idx >= 0; idx--) {
+            for (int buy = 0; buy <= 1; buy++) {
+                for (int limit = 1; limit <= k; limit++) {
+                    int prf = 0;
+                    if (buy) {
+                        int buy_karo = -pr[idx] + dp[idx + 1][0][limit];
+                        int skip_karo = dp[idx + 1][1][limit];
+                        prf = max(buy_karo, skip_karo);
+                    } else {
+                        int sell_karo = pr[idx] + dp[idx + 1][1][limit - 1];
+                        int skip_karo = dp[idx + 1][0][limit];
+                        prf = max(sell_karo, skip_karo);
+                    }
+                    dp[idx][buy][limit] = prf;
+                }
+            }
+        }
+        return dp[0][1][k];
+    }
+
+    int maxProfit(int k, vector<int>& prices) {
+        return solve(k, prices);
+    }
+};

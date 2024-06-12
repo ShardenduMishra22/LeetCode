@@ -56,3 +56,25 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+
+class Solution {
+public:
+    int longestSubsequence(vector<int>& arr, int diff) {
+        unordered_map<int,int>dp;
+        int ans = 0;
+        for(int i=0;i<arr.size();i+=1){
+            int temp = arr[i] - diff;
+            int res = 0;
+            
+            if(dp.count(temp)){
+                res += dp[temp];
+            }
+
+            dp[arr[i]] = 1 + res;
+            
+            ans = max(ans,dp[arr[i]]);
+        }
+        return ans;
+    }
+};

@@ -56,3 +56,17 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+class Solution {
+public:
+    int maxProfit(vector<int>& pr) {
+        int prf = 0;
+        int mn = pr[0];
+        for(int i=1;i<pr.size();i+=1){
+            int diff = pr[i] - mn;
+            prf = max(prf,diff);
+            mn = min(mn,pr[i]);
+        }
+        return prf;
+    }
+};

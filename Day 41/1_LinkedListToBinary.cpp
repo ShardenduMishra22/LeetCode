@@ -1,14 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#pragma GCC optimize("Ofast")
-static auto _ = [] () {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 0;
-}();
-
 #define frb(i, len) for(int i = len-1; i >= 0; i--)
 #define fr(i, len) for(int i = 0; i < len; i++)
 
@@ -29,9 +21,9 @@ typedef unsigned unsg;
 typedef double dbl;
 
 typedef vector<vector<string>> vvstr;
-typedef vector<vector<bool>> vvbl;
+typedef vector<vector<bool>> vvint;
 typedef vector<vector<int>> vvint;
-typedef vector<vector<ll>> vvll;
+typedef vector<vector<ll>> vvint;
 
 typedef vector<string> vstr;
 typedef vector<int> vint;
@@ -56,3 +48,31 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+void fast() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}
+
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+ 
+
+class Solution {
+    public:
+    int getDecimalValue(ListNode* head) {
+        int ans = 0;
+
+        for (; head; head = head->next)
+            ans = ans * 2 + head->val;
+
+        return ans;
+    }
+};

@@ -56,3 +56,47 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+
+class Solution {
+public:
+    string mostCommonWord(string paragraph, vector<string>& banned) {
+        unordered_map<string, int> m;
+        
+        for (int i = 0; i < banned.size(); ++i)
+            m[banned[i]] = INT_MIN;
+
+        
+        for (int i = 0; i < paragraph.size(); ++i){
+            if(!isalnum(paragraph[i])){
+                paragraph[i] = ' ';    
+            }else{
+                paragraph[i] = tolower(paragraph[i]);
+            }
+        }
+        
+        stringstream ss(paragraph);
+        string temp = "";
+        int mx = -1;
+        
+        while (ss >> temp) {
+            if (!temp.empty()) {
+                m[temp]++;
+                if (m[temp] > mx) {
+                    mx = m[temp];
+                }
+            }
+            temp = "";
+        }
+        
+        string res;
+        for (auto it = m.begin(); it != m.end(); ++it) {
+            if (it->second == mx) {
+                res = it->first;
+                break;
+            }
+        }
+        
+        return res;
+    }
+};

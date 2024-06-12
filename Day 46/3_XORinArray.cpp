@@ -56,3 +56,25 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+// class Solution {
+// public:
+//     int xorOperation(int n, int start) {
+//         int ans = 0;
+//         for(int i=start;n--;i+=2){
+//             ans ^= i;
+//         }
+//         return ans;
+//     }
+// };
+
+class Solution {
+public:
+    int xorOperation(int n, int start) {
+        int x=0;
+        for(int i=0;i<n;i++){
+            x ^= start + (i<<1);
+        }
+        return x;
+    }
+};

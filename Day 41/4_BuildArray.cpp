@@ -1,14 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#pragma GCC optimize("Ofast")
-static auto _ = [] () {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-    return 0;
-}();
-
 #define frb(i, len) for(int i = len-1; i >= 0; i--)
 #define fr(i, len) for(int i = 0; i < len; i++)
 
@@ -56,3 +48,30 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+void fast() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+}
+
+// class Solution {
+// public:
+    
+// };
+
+vector<int> buildArray(vector<int>& nums) {
+   vector<int>ans(nums.size());
+   for(int i=0;i<nums.size();i++){
+        ans[i] = nums[nums[i]];
+   }
+   return ans;
+}
+
+int main(){
+    vint nums = {4,3,2,0,1};
+    nums = buildArray(nums);
+    fr(i,5){
+        cout<<nums[i];
+    }
+}

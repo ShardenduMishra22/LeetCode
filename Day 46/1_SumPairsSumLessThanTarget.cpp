@@ -56,3 +56,36 @@ int InvrsnCnt = 0;
 int size_arr = 0;
 int size_ll = 0;
 int top = -1;
+
+// class Solution {
+// public:
+//     int countPairs(vector<int>& nums, int target) {
+//         int n = nums.size();
+//         int ans = 0;
+//         for(int i = 0 ; i < n ; i++){
+//             for(int j = i + 1 ; j < n ; j++){
+//                 if(nums[i] + nums[j] < target)
+//                     ans++;
+//             }
+//         }
+//         return ans;
+//     }
+// };
+
+class Solution {
+public:
+    int countPairs(vector<int>& nums, int target) {
+        srt(nums);
+        int cnt = 0;
+        int i=0,j=nums.size()-1;
+        while(i<j){
+            if(nums[i] + nums[j] < target){
+                cnt += j - i;
+                i += 1;
+            }else{
+                j -= 1;
+            }
+        }
+        return cnt;
+    }
+};
