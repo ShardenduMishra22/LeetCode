@@ -60,3 +60,38 @@ int InvrsnCnt=0;
 int size_arr=0;
 int size_ll=0;
 int top=-1;
+
+class Solution {
+public:
+    int minDays(vector<int>& blm, int m, int k) {
+        if (1ll * blm.size() < 1ll * m * k) 
+            return -1;
+        int mn = *min_element(blm.begin(), blm.end());
+        int mx = *max_element(blm.begin(), blm.end());
+
+        while (mn < mx) {
+            int mid = mn + (mx - mn) / 2;
+            int buq = 0, flr = 0;
+
+            for (int i = 0; i < blm.size(); i++) {
+                if (blm[i] <= mid) {
+                    flr++;
+                    if (flr == k) {
+                        buq++;
+                        flr = 0;
+                    }
+                } else {
+                    flr = 0;
+                }
+            }
+
+            if (buq >= m) {
+                mx = mid;
+            } else {
+                mn = mid + 1;
+            }
+        }
+
+        return mn;
+    }
+};

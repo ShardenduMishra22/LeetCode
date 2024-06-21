@@ -60,3 +60,27 @@ int InvrsnCnt=0;
 int size_arr=0;
 int size_ll=0;
 int top=-1;
+
+
+class Solution {
+public:
+    bool isAlienSorted(vector<string>& words, string order) {
+        map<char, char> m;
+        for(int i=0; i<26; i++){
+            char c = 'a'+i;
+            m[order[i]] = c;
+        }
+        string prev = "";
+        for(auto w: words){
+            string curr = "";
+            for(char c: w){
+                curr += m[c];
+            }
+            if(prev > curr){
+                return false;
+            }
+            prev = curr;
+        }
+        return true;
+    }
+};

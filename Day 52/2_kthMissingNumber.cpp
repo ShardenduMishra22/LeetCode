@@ -1,12 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#pragma GCC target   ("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx")
-#pragma GCC optimize ("Ofast")
-#pragma GCC optimize ("-ffloat-store")
-#pragma GCC optimize ("Ofast")
-
-static auto _ = [] () {
+#pragma GCC optimize("Ofast")
+static auto _=[] () {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -60,3 +56,18 @@ int InvrsnCnt=0;
 int size_arr=0;
 int size_ll=0;
 int top=-1;
+
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int target = 1;
+        while (k > 0) {
+            if(find(arr.begin(), arr.end(), target) == arr.end())
+                k -= 1;
+            if(k == 0) 
+                break;
+            target += 1;
+        }
+        return target;
+    }
+};

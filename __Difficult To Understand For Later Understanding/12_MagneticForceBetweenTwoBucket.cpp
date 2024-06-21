@@ -60,3 +60,41 @@ int InvrsnCnt=0;
 int size_arr=0;
 int size_ll=0;
 int top=-1;
+
+
+class Solution {
+public:
+    bool solve(vector<int>& posn, int mid, int m) {
+        int cnt = 1;
+        int lst = posn[0];
+
+        for(int i = 1; i < posn.size(); i++) {
+            if(posn[i] - lst >= mid) {
+                cnt += 1;
+                lst = posn[i];
+            }
+            if(cnt >= m) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    int maxDistance(vector<int>& posn, int m) {
+        sort(posn.begin(), posn.end());
+        int l = 1;  
+        int r = posn.back() - posn[0];  
+        int ans = 0;  
+
+        while(l <= r) {
+            int mid = l + (r - l) / 2;
+            if(solve(posn, mid, m)) {
+                ans = mid;
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return ans;
+    }
+};
