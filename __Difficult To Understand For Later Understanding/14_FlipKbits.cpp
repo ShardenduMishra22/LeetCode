@@ -13,7 +13,11 @@ static auto _ = [] () {
     return 0;
 }();
 
+#define frb(i, len) for(int i=len-1; i =0; i--)
 #define fr(i, len) for(int i=0; i < len; i++)
+
+#define rvrs(a) reverse(a.begin(),a.end())
+#define srt(a) sort(a.begin(),a.end())
 
 #define YES cout<<"Yes \n";
 #define NOO cout<<"No  \n";
@@ -56,3 +60,32 @@ int InvrsnCnt=0;
 int size_arr=0;
 int size_ll=0;
 int top=-1;
+class Solution {
+
+    
+public:
+    int minKBitFlips(vector<int>& nums, int k) {
+        vector<bool> flipped(nums.size(), false);
+        int validFlipsFromPastWindow = 0;
+        int flipCount = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (i >= k) {
+                if (flipped[i - k]) {
+                    validFlipsFromPastWindow--;
+                }
+            }
+
+            if (validFlipsFromPastWindow % 2 == nums[i]) {
+                if (i + k > nums.size()) {
+                    return -1;
+                }
+                validFlipsFromPastWindow++;
+                flipped[i] = true;
+                flipCount++;
+            }
+        }
+
+        return flipCount;
+    }
+};
