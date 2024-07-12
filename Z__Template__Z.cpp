@@ -13,7 +13,8 @@ static auto _ = [] () {
     return 0;
 }();
 
-#define fr(i, len) for(int i=0; i < len; i++)
+#define frw(i, len) for(ll i = 0   ; i < len ; i++)
+#define frb(i, len) for(ll i = len ; i >= 0  ; i--)
 
 #define YES cout<<"Yes \n";
 #define NOO cout<<"No  \n";

@@ -22,7 +22,7 @@ static auto _ = [] () {
 #define MAX_SIZE 10000
 #define nptr nullptr
 
-typedef stringstream strgm;
+typedef stringstream sstr;
 typedef long long int ll;
 typedef const int c_int;
 typedef unsigned unsg;
@@ -48,15 +48,14 @@ typedef queue<bool> qbl;
 typedef queue<int> qint;
 typedef queue<ll> qll;
 
-c_int MOD=1e9 + 7;
-c_int Mx_row=100;
-c_int Mx_col=100;
 int size_stack=0;
 int InvrsnCnt=0;
 int size_arr=0;
 int size_ll=0;
 int top=-1;
-
+c_int MOD=1e9+7;
+c_int Mx_row=100;
+c_int Mx_col=100;
 
 // class Solution {
 // public:
