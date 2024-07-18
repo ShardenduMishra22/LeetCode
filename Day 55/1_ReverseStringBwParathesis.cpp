@@ -82,31 +82,32 @@ class Solution {
 public:
     string reverseParentheses(string s) {
         int n = s.length();
-        stack<int> openParenthesesIndices;
-        vector<int> pair(n);
+        stack<int> para;
+        unordered_map<int, int> pair;
 
         for (int i = 0; i < n; ++i) {
             if (s[i] == '(') {
-                openParenthesesIndices.push(i);
+                para.push(i);
             }
             if (s[i] == ')') {
-                int j = openParenthesesIndices.top();
-                openParenthesesIndices.pop();
+                int j = para.top();
+                para.pop();
                 pair[i] = j;
                 pair[j] = i;
             }
         }
 
         string result;
-        for (int currIndex = 0, direction = 1; currIndex < n;
-             currIndex += direction) {
-            if (s[currIndex] == '(' || s[currIndex] == ')') {
-                currIndex = pair[currIndex];
-                direction = -direction;
+
+        for (int i = 0, dirn = 1; i < n; i += dirn) {
+            if (s[i] == '(' || s[i] == ')') {
+                i = pair[i];
+                dirn = -dirn;
             } else {
-                result += s[currIndex];
+                result += s[i];
             }
         }
+
         return result;
     }
 };

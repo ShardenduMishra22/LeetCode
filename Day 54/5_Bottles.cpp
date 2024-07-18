@@ -57,21 +57,21 @@ int size_arr=0;
 int size_ll=0;
 int top=-1;
 
-// class Solution {
-// public:
-//     int numWaterBottles(int numBottles, int numExchange) {
-//         int consumedBottles = 0;
+class Solution {
+public:
+    int numWaterBottles(int numBottles, int numExchange) {
+        int consumedBottles = 0;
 
-//         while (numBottles >= numExchange) {
-//             consumedBottles += numExchange;
-//             numBottles -= numExchange;
+        while (numBottles >= numExchange) {
+            consumedBottles += numExchange;
+            numBottles -= numExchange;
 
-//             numBottles++;
-//         }
+            numBottles++;
+        }
 
-//         return consumedBottles + numBottles;
-//     }
-// };
+        return consumedBottles + numBottles;
+    }
+};
 
 class Solution {
 public:
