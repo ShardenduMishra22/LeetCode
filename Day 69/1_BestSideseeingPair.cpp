@@ -41,22 +41,7 @@ public:
         
 //         return ans;
 //     }
-// };class Solution {
-public:
-    int maxScoreSightseeingPair(vector<int>& val) {
-        int max_score = 0;
-        int max_left = val[0];
-        
-        for (int i = 1; i < val.size(); i++) {
-            max_score = max(max_score, max_left + val[i] - i);
-            max_left = max(max_left, val[i] + i);
-        }
-        
-        return max_score;
-    }
-};
-
-
+// };
 
 // class Solution {
 // public:
