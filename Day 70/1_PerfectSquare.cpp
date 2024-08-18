@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 class Solution {
 public:
-    int solve(int n, vector<int>& ans, int idx,vector<vector<int>>& dp) {
+    int solve(int n, vector<int>& ans, int idx,vector<vector<int>>& dp){
         if (n == 0) {
             return 0;
         }
@@ -22,7 +23,7 @@ public:
         }
 
         int exclude = solve(n, ans, idx + 1, dp);
-
+    
         return dp[n][idx] = min(include, exclude);
     }
 
