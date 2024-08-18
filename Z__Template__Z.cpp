@@ -57,8 +57,6 @@ int size_arr = 0;
 int size_ll = 0;
 int top = -1;
 
-
 int main(){
-
-    return 0;
+    cout<<INT_MAX;
 }
