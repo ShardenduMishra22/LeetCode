@@ -14,7 +14,7 @@ public:
         
         for (int i = st; i <= end; i++) {
             m[wrd[i]] += 1;
-            if (m.size() == 5) { // All vowels are present
+            if (m.size() == 5){
                 int k = start;
                 while (m.size() == 5) {
                     m[wrd[k]] -= 1;
