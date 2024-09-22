@@ -1,30 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 class Solution {
 public:
-    vector<int> lexicalOrder(int n) {
-        vector<int> lexicographicalNumbers;
-        for (int start = 1; start <= 9; ++start) {
-            generateLexicalNumbers(start, n, lexicographicalNumbers);
+    void solve(int curr, int n, vector<int>& res) {
+        if (curr > n) {
+            return;
         }
-        return lexicographicalNumbers;
+        res.push_back(curr);
+        for (int i = 0; i <= 9; i++) {
+            int nextNum = curr * 10 + i;
+            if (nextNum > n) {
+                return;
+            }
+            solve(nextNum, n, res);
+        }
     }
 
-private:
-    void generateLexicalNumbers(int currentNumber, int limit, vector<int>& result) {
-        if (currentNumber > limit) return;
-
-        result.push_back(currentNumber);
-
-        for (int nextDigit = 0; nextDigit <= 9; ++nextDigit) {
-            int nextNumber = currentNumber * 10 + nextDigit;
-            if (nextNumber <= limit) {
-                generateLexicalNumbers(nextNumber, limit, result);
-            } else {
-                break;
-            }
+    vector<int> lexicalOrder(int n) {
+        vector<int> res;
+        for (int i = 1; i <= 9; i++) {
+            solve(i, n, res);
         }
+        return res;
     }
 };
